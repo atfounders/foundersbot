@@ -6,9 +6,18 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 
+/**
+ * Shuffle through bot's expressions.
+ */
 function notify_fun() {
 
-	$greetings = array( 'Beep boop', 'This just in', 'Boop beep boop', 'Listen up humans', 'Foundersbot speaks' );
+	$greetings = array( 
+		'Beep boop', 
+		'This just in', 
+		'Boop beep boop', 
+		'Listen up humans', 
+		'Foundersbot speaks' 
+	);
 	
 	shuffle( $greetings );
 	
@@ -19,6 +28,9 @@ function notify_fun() {
 }
 
 
+/**
+ * Generate celebration phrase.
+ */
 function notify_celebration() {
 
 	$yays = array( 'My sensors indicate this is <em>awesome</em>.', 'I have no feelings, but my <code>0</code> just became a <code>1</code> for you.', 'You are welcome, human.', 'Congratulations, human.', 'Celebrate, humans.' );
@@ -35,7 +47,7 @@ function notify_celebration() {
 // Support for notifications in Simple Badges
 add_action( 'simplebadges_after_adding', 'notify_simplebadges', 10, 2 );
 
-function notify_simplebadges( $badge_toggle_user_id, $badge_toggle_badge_id ) {
+function notify_simplebadges( $badge_toggle_badge_id, $badge_toggle_user_id ) {
 
 	$user_meta = get_userdata( $badge_toggle_user_id );
 	$user_name = $user_meta->user_login;
