@@ -54,14 +54,14 @@ function notify_simplebadges( $badge_toggle_badge_id, $badge_toggle_user_id ) {
 					
 	$badge_title = get_the_title( $badge_toggle_badge_id );
 	$badge_object = get_page( $badge_toggle_badge_id );
-	$badge_desc .= '"' . $badge_title .  ': ';
+	$badge_desc = '"' . $badge_title .  ': ';
 	$badge_desc .= $badge_object->post_content . '"';
 	$badge_image = get_the_post_thumbnail( $badge_toggle_badge_id, array( 151, 154 ) );
 	$greeting = notify_fun();				
 	$celebrate = notify_celebration();
 					
 	// Fire out a notification to the chat stream
-	$notification_message .= '<div class="notify-status">' . $badge_image . '</div><p><strong>' . $greeting . '</strong>@' . $user_name . ' just received the <strong>' . $badge_title . '</strong> badge. ' . $celebrate . '</p>';
+	$notification_message = '<div class="notify-status">' . $badge_image . '</div><p><strong>' . $greeting . '</strong>@' . $user_name . ' just received the <strong>' . $badge_title . '</strong> badge. ' . $celebrate . '</p>';
 	$notification_message .=  $badge_desc . '<div class="clear"></div>';
 					
 	$post_args = array(
